@@ -1,0 +1,18 @@
+ -- Nila Niroula
+
+-- In this project, the tables from HW5 are used 
+
+-- Tables from postgres database are exported to JSON format using the following commands
+
+\t
+\o ./flight-backup.json
+SELECT row_to_json(row) FROM (SELECT * FROM Customers ) row;
+SELECT row_to_json(row_add) FROM (SELECT * FROM Address) row_add;
+SELECT row_to_json(row_phone) FROM (SELECT * FROM Phone_Number) row2_phone;
+SELECT row_to_json(row_flight) FROM (SELECT * FROM Flight) row_flight;
+SELECT row_to_json(row_passanger) FROM (SELECT * FROM Passangers) row_passanger;
+SELECT row_to_json(row_booking) FROM (SELECT * FROM Booking) row_booking;
+
+-- In MongoDB, following commands were used ot import json files
+
+mongoimport -- db C:\Program Files\MongoDB\Server\3.6\data\db --collection Flight_info --file ./flight_backup.json
